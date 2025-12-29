@@ -1,8 +1,7 @@
 // const prompt = require("prompt-sync")();
 //*ncree data fen aykon endi dakchy b3da 
 let users = [];
-let emails = [];
-let passwords = [];
+
 
 
 let ask;
@@ -28,6 +27,8 @@ class User {
          this.lflousli3ndo=2000
    
     }
+
+   
 
 // *ankhdem partie lkhra as a methode  fluser 
 //deconexion
