@@ -44,7 +44,7 @@ logout(user){
 //retirer l'argent
 withdrawMoney(){
     let argent=prompt("chhal bgity tkhrej dyal lflou?")
-    if(argent>=2000){
+    if(argent<=2000){
         alert("ok t9der tkhrej lflous ")
         this.lflousli3ndo-=argent
        
@@ -56,7 +56,7 @@ depositMoney(){
     let money= Number(prompt("chhal bgyty thet dyal lfous"))
     if(money<1000){
         this.lflousli3ndo+=money
-    this.historique.push()
+    this.historique.push(`${money}`)
     }
 
 }
@@ -66,7 +66,8 @@ takeALoan(){
    if( credit === 0,2*this.lflousli3ndo){
      this.lflousli3ndo+=this.lflousli3ndo*0,2 
      if(ask===login){this.lflousli3ndo-=this.lflousli3ndo*0,1}
-
+  
+     this.historique.push(`${credit}`)
 
    } 
 
@@ -77,7 +78,8 @@ takeALoan(){
 }
 invest(){
     let montant=prompt("choisir un montant a investir")
-    this.lflousli3ndo+=this.lflousli3ndo*0,20
+    this.lflousli3ndo+=this.lflousli3ndo*1,2
+     this.historique.push(`${montant}`)
 }
  historique(){}
 }
