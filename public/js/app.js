@@ -143,10 +143,25 @@ if( password!=Password_confirmed){
 
 function changermdp(){
    let askemail=prompt("enter ur email")
-   if ( askemail===emails){
+   if ( emails.includes(askemail)){
     alert("you can changer tn mdp ")
+
+    let newmdp=prompt("enter your new mdp")
+    let Password_confirmed=prompt("enter you password confirmed ")
     
-   }
+    if ( newmdp===Password_confirmed){
+        alert("your mdp is valid")
+
+    }else{
+        alert("your mdp is invalid")
+    }
+    let chercher=emails.indexOf(askemail)
+    users[chercher].password=newmdp
+    alert("now you your new mpd is apdates")
+   
+
+
+   
 }
 
 //         * If the user chooses to sign up, here are the details they must enter:
