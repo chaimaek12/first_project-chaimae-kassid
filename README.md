@@ -106,27 +106,12 @@ Transaction: Withdraw $150
 
 ## 📁 Project Structure
 
-```
-banking-system/
-│
-├── src/
-│   ├── index.js           # Application entry point
-│   ├── models/
-│   │   ├── User.js        # User class definition
-│   │   └── Account.js     # Account class definition
-│   ├── utils/
-│   │   ├── validation.js  # Input validation helpers
-│   │   └── formatter.js   # Display formatting utilities
-│   └── config/
-│       └── constants.js   # App configuration
-│
-├── public/
-│   └── js/
-│       └── main.js        # Additional scripts
-│
-├── package.json
+.
+├── index.html
+├── public
+│   └── js
+│       └── main.js
 └── README.md
-```
 
 ---
 
