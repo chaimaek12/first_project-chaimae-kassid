@@ -119,18 +119,20 @@ if( password!=Password_confirmed){
 
          let email=prompt("enter your email")
         let password=prompt("enter your password")
-        if( emails.indexOf(emails.includes(email))){
+        if( emails.includes(email)){
             alert("your email existe")
 
 
-        }else if(emails.indexOf()=-1){
+        }else{
             alert(" we don't have this email")
 
         }
-        for (let i= 0; i < emails.length; index++) {
-           if(email[i]=passwords[i]){
+        for (let i= 0; i < users.length; i++) {
+           if(  user[i].email===email  && user[i].password===passwords){
             alert("ton mdp est juste ")
-           }
+           }else{
+            alert("your mdp is incorrect ")
+        }
             
         }
          
