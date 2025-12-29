@@ -1,122 +1,97 @@
+// const prompt = require("prompt-sync")();
+//*ncree data fen aykon endi dakchy b3da 
+let users = [];
+let emails = [];
+let passwords = [];
+
+
+let ask;
+
+    ask = prompt("Choose: sign up, log in, change password, or exit");
+
+    if (ask === "sign up") signup();
+    else if(ask === "log in") login();
+    else if (ask === "change password") changermdp();
 
 
 
-// ## 3 - Instructions:
-// - Account Creation and Management:
-//     + Allow the user, via prompts, to choose between signing up, logging in, or changing the password.
-
-//     + If the user only writes "exit," they exit the current process, and the choice question is asked again.
-  //*ncree b3da data fen aykoun endi daakchy 
-let users=[]
-let emails=[]
-let passwords=[]
-
-let ask = prompt("choose  signing up , logginin in  or changing password")
-if(ask==="exit"){
-    
- ask=prompt("choose  signing up , logginin in  or changing password")
-  }else if ( ask==="sign up"){
-    signup()
-   
 
 
-
-    
-
-}else if(ask==="log in "){
-    login()
-
-}else{  //changer le password 
-
-changermdp()
-
+class User {
+    constructor(name, email, age, password,passwordConfirmed) {
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.password = password;
+        this.passwordConfirmed=passwordConfirmed;
+    }
 }
 
 
 
 
 
- class user {
-        constructor(name,email,age,password,Password_confirmed) {
-            this.name=name
-            this.age=age
-            this.email=email
-            this.password=password
-            this.Password_confirmed=Password_confirmed
-            
-        }
-    }
-    users.push(username)
-     // il choosaa sig upp 
-    function signup () {
 
-        let name=prompt("enter tour name ")
+
+
+
+
+
+
+ function signup () {
+
+      let name=prompt("enter tour name ")
+//           //*condition dyal  name
+   if( (name.length<5    && !name.includes("@")   &&  name[0] ===name[0].toUpperCase() ) ){
+    alert("your name is invalid")
+    return}
 
         let age=prompt("enter your age")
-        let email=prompt("enter your email")
-        let password=prompt("enter your password")
-        let Password_confirmed=prompt("confirmer ton password")
 
-let username=new user (name,age,email,password,Password_confirmed) 
-users.push(username)
-       //*condition dyal  name
-   if( name.length>5    && !name.includes("@")   &&  name[0] ===name[0].toUpperCase()  ){
-    alert("your name is valid")
-    
+//         //*condition dyal age 
+   age =age.trim()
+   if ( !  ( age!=='' && age.length >0 && age.length<3  )){
 
-   }else {
-    alert("your name is invalide")
+    alert("your age isn't valid")
     return
-   }
 
- //*conditions dyal email
+   }
+        let email=prompt("enter your email")
+
+
+//         //*conditions dyal email
  email= email.trim().toLowerCase()
- if( email.length>10   && !email.includes(" ")  && email.split("@").length===2){
-    alert("your email is valid")
+ if( !(email.length>10   && !email.includes(" ")  && email.split("@").length===2)){
+    alert("your email is invalid")
+    return}
     if(emails.includes(email)){
         alert ("your email est deja utiliser ")
         return
-    }else{
-        emails.push(email)
     }
     
 
- } else{
-    alert("your email is invalid")
-
- }
-
-   //*condition dyal age 
-   age =age.trim()
-   if (    age!=='' && age.length >0 && age.length<3  ){
-
-    alert("your age is valid")
-
-
-   }else{
-    alert("your age isn't valid")
-
-   }
-//*condition dyal password
+ 
+        let password=prompt("enter your password")
+//         //*condition dyal password
 password=password.trim() 
- if( password.length>=7 &&!password.includes(" ")   ){
- alert ("your passworld is valid ")
- } else {
+ if(! ( password.length>=7 &&!password.includes(" ")  ) ){
+ 
     alert("your passworl is invalid")
+    return
  }
-passwords.push(password)
 
- //*password confirmee
-if( password!=Password_confirmed){
+        let Password_confirmed=prompt("confirmer ton password")
+//         //*password confirmee
+if( password!==Password_confirmed){
             alert("password ne matche pas password-confirmed")
+            return
         }
 
 
     }
-    //ila choosa log in 
 
-
-    function login(){
+// Fonction login
+function login(){
 
          let email=prompt("enter your email")
         let password=prompt("enter your password")
@@ -140,8 +115,9 @@ if( password!=Password_confirmed){
 
 
     }
- // ila chosaa ichanger mdp
 
+
+// Fonction changer mot de passe
 function changermdp(){
    let askemail=prompt("enter ur email")
    if ( emails.includes(askemail)){
@@ -174,8 +150,35 @@ function changermdp(){
 
 
    
-}
+}}
 
+
+
+
+
+
+
+
+
+
+// ## First Project JavaScript:
+
+// ## 1 - Instructions:
+// - Create a folder named: first_project_js_firstName_lastName
+// - Create a repository with the same name as the folder
+// - Adhere to the folder structure
+// - Individual work
+// - Minimum of 10 commits
+// - Deadline: One day
+// - Use of object classes, arrays, functions, prompts, etc.
+
+// ## 2 - Project Objective:
+// - Create a JavaScript program that simulates logging into a bank account using only the console to interact with the user.
+
+// ## 3 - Instructions:
+// - Account Creation and Management:
+//     + Allow the user, via prompts, to choose between signing up, logging in, or changing the password.
+//     + If the user only writes "exit," they exit the current process, and the choice question is asked again.
 //         * If the user chooses to sign up, here are the details they must enter:
 //             # Name (Full):
 //             - Check for leading or trailing spaces.
@@ -193,14 +196,10 @@ function changermdp(){
 //             - Do not save the Email if it does not contain exactly one "@" symbol.
 //             - Ensure the email is unique.
 
-
-
 //             # Age:
 //             - Check for leading, trailing, or middle spaces.
 //             - Verify that only digits are entered.
 //             - Do not save the Age if it has 0 characters, or if it has 3 characters or more.
-
-
 
 //             # Password:
 //             - Check for leading or trailing spaces.
@@ -208,19 +207,12 @@ function changermdp(){
 //             - Require at least one special character from the set: ["@", "#", "-", "+", "*", "/"].
 //             - Require at least 7 characters to confirm the password.
 
-
-
-
-
-
 //             # Password_confirmed:
 //             - The user must re-enter their exact password; otherwise, they are blocked.
-
 
 //         * If the user chooses to log in, here are the details they must enter:
 //             # Email:
 //             - Check if the email exists in our Database.
-
             
 //             # Password:
 //             - Check if the entered password is associated with the previously entered email.
@@ -248,5 +240,3 @@ function changermdp(){
             
 //             # History:
 //             - Ability to view the entire transaction history.
-
-
