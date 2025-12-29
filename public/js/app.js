@@ -28,7 +28,7 @@ if(ask==="exit"){
 
 }else{  //changer le password 
 
-
+changermdp()
 
 }
 
@@ -139,8 +139,15 @@ if( password!=Password_confirmed){
 
 
     }
+ // ila chosaa ichanger mdp
 
-
+function changermdp(){
+   let askemail=prompt("enter ur email")
+   if ( askemail===emails){
+    alert("you can changer tn mdp ")
+    
+   }
+}
 
 //         * If the user chooses to sign up, here are the details they must enter:
 //             # Name (Full):
