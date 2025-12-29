@@ -18,14 +18,70 @@ let ask;
 
 
 class User {
-    constructor(name, email, age, password,passwordConfirmed) {
+    constructor(name, email, age, password,passwordConfirmed ) {
         this.name = name;
         this.email = email;
         this.age = age;
         this.password = password;
         this.passwordConfirmed=passwordConfirmed;
+         this.historique=[]
+         this.lflousli3ndo=2000
+   
+    }
+
+// *ankhdem partie lkhra as a methode  fluser 
+//deconexion
+logout(user){
+    //hady gi bach taffichy leh chhal endo dyal lflous 
+    if(ask===("login in")){
+        console.log(this.lflousli3ndo);
+        
+
+    }
+    
+}
+//retirer l'argent
+withdrawMoney(argent){
+    let argent=prompt("chhal bgity tkhrej dyal lflou?")
+    if(argent>=2000){
+        alert("ok t9der tkhrej lflous ")
+        this.lflousli3ndo-=argent
+       
+
     }
 }
+ 
+depositMoney(money){
+    let money= Number(prompt("chhal bgyty thet dyal lfous"))
+    if(money<1000){
+        this.lflousli3ndo+=money
+    this.historique.push()
+    }
+
+}
+//credit
+takeALoan(credit){
+    let credit= Numbermber (prompt("chhal lcredit li bgity takhod ?"))
+   if( credit === 0,2*this.lflousli3ndo){
+     this.lflousli3ndo+=this.lflousli3ndo*0,2 
+     if(ask===login){this.lflousli3ndo-=this.lflousli3ndo*0,1}
+
+
+   } 
+
+
+
+
+
+}
+invest(montant){
+    let montant=prompt("choisir un montant a investir")
+    this.lflousli3ndo+=this.lflousli3ndo*0,20
+}
+ historique(){}
+}
+
+
 
 
 
@@ -153,6 +209,34 @@ function changermdp(){
 }}
 
 
+function bank(user) {
+    let menu = prompt(" choose logout or withdraw or deposit or loan or invest or historique");
+
+    if (menu === "logout") {
+        user.logout();
+        return;
+    }
+
+    if (menu === "withdraw") {
+        user.withdrawMoney();
+    }
+
+    if (menu === "deposit") {
+        user.depositMoney();
+    }
+
+    if (menu === "loan") {
+        user.takeALoan();
+    }
+
+    if (menu === "invest") {
+        user.invest();
+    }
+
+    if (menu === "historique") {
+        alert(user.historique);
+    }
+}
 
 
 
