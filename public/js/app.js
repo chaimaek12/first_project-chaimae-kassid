@@ -9,6 +9,7 @@
   //*ncree b3da data fen aykoun endi daakchy 
 let users=[]
 let emails=[]
+let passwords=[]
 
 let ask = prompt("choose  signing up , logginin in  or changing password")
 if(ask==="exit"){
@@ -23,6 +24,7 @@ if(ask==="exit"){
     
 
 }else if(ask==="log in "){
+    login()
 
 }else{  //changer le password 
 
@@ -101,7 +103,7 @@ password=password.trim()
  } else {
     alert("your passworl is invalid")
  }
-
+passwords.push(password)
 
  //*password confirmee
 if( password!=Password_confirmed){
@@ -110,7 +112,31 @@ if( password!=Password_confirmed){
 
 
     }
-    
+    //ila choosa log in 
+
+
+    function login(){
+
+         let email=prompt("enter your email")
+        let password=prompt("enter your password")
+        if( emails.indexOf(emails.includes(email))){
+            alert("your email existe")
+
+
+        }else if(emails.indexOf()=-1){
+            alert(" we don't have this email")
+
+        }
+        for (let i= 0; i < emails.length; index++) {
+           if(email[i]=passwords[i]){
+            alert("ton mdp est juste ")
+           }
+            
+        }
+         
+
+
+    }
 
 
 
