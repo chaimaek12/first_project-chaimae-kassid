@@ -106,13 +106,13 @@ Transaction: Withdraw $150
 
 ## 📁 Project Structure
 
-.
+```
 ├── index.html
 ├── public
 │   └── js
 │       └── main.js
 └── README.md
-
+```
 ---
 
 ## 🛠 Technologies
