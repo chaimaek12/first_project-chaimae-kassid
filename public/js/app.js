@@ -46,6 +46,7 @@ changermdp()
             
         }
     }
+    users.push(username)
      // il choosaa sig upp 
     function signup () {
 
@@ -57,7 +58,7 @@ changermdp()
         let Password_confirmed=prompt("confirmer ton password")
 
 let username=new user (name,age,email,password,Password_confirmed) 
-users.push(user)
+users.push(username)
        //*condition dyal  name
    if( name.length>5    && !name.includes("@")   &&  name[0] ===name[0].toUpperCase()  ){
     alert("your name is valid")
@@ -128,7 +129,7 @@ if( password!=Password_confirmed){
 
         }
         for (let i= 0; i < users.length; i++) {
-           if(  user[i].email===email  && user[i].password===passwords){
+           if(  users[i].email===email  && users[i].password===passwords){
             alert("ton mdp est juste ")
            }else{
             alert("your mdp is incorrect ")
@@ -148,7 +149,18 @@ function changermdp(){
 
     let newmdp=prompt("enter your new mdp")
     let Password_confirmed=prompt("enter you password confirmed ")
+     
     
+    if( newmdp.length>=7 &&!newmdp.includes(" ")   ){
+ alert ("your passworld is valid ")
+ } else {
+    alert("your passworl is invalid")
+ }
+
+
+
+
+
     if ( newmdp===Password_confirmed){
         alert("your mdp is valid")
 
