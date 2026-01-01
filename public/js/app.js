@@ -1,18 +1,20 @@
 // const prompt = require("prompt-sync")();
 //*ncree data fen aykon endi dakchy b3da 
 let users = [];
+let emails=[]
+let passwords=[]
+
+while (true ){  // mahed luser madarch exist atb9a t3awed endi lboucle 
 
 
-
-let ask;
-
-    ask = prompt("Choose: sign up, log in, change password, or exit");
+    let ask = prompt("Choose: sign up, log in, change password, or exit");
 
     if (ask === "sign up") signup();
     else if(ask === "log in") login();
     else if (ask === "change password") changermdp();
+      else if (ask==="exit") break
 
-
+}
 
 
 
@@ -25,10 +27,11 @@ class User {
         this.passwordConfirmed=passwordConfirmed;
          this.historique=[]
          this.lflousli3ndo=2000
+         this.credit=0
+         this.invest=0
    
     }
 
-   
 
 // *ankhdem partie lkhra as a methode  fluser 
 //deconexion
@@ -43,12 +46,14 @@ logout(user){
 }
 //retirer l'argent
 withdrawMoney(){
-    let argent=prompt("chhal bgity tkhrej dyal lflou?")
-    if(argent<=2000){
+    let argent= Number(prompt("chhal bgity tkhrej dyal lflou?"))
+    if(argent<=this.lflousli3ndo){
         alert("ok t9der tkhrej lflous ")
         this.lflousli3ndo-=argent
        
 
+    }else{
+        alert("invalid operation")
     }
 }
  
@@ -57,19 +62,27 @@ depositMoney(){
     if(money<1000){
         this.lflousli3ndo+=money
     this.historique.push(`${money}`)
+    }else{
+        alert("invalid operation")
     }
 
 }
 //credit
 takeALoan(){
-    let credit= Numbermber (prompt("chhal lcredit li bgity takhod ?"))
-   if( credit === 0,2*this.lflousli3ndo){
-     this.lflousli3ndo+=this.lflousli3ndo*0,2 
-     if(ask===login){this.lflousli3ndo-=this.lflousli3ndo*0,1}
+    let credit= Number(prompt("chhal lcredit li bgity takhod ?"))
+   if( credit <= 0,2*this.lflousli3ndo){//dakchy li3ndo sger mn 20% dyal dakchy li bga flcredit
+     this.lflousli3ndo+=credit
+     this.credit =+credit   //dek li lcredit li 3tetha 0 flclass ayt3mr blcredi li khda 
+     if(ask===login){this.lflousli3ndo-=this.credit*0,1
+        
+     }
   
      this.historique.push(`${credit}`)
 
-   } 
+
+   } else{
+    alert("credit refused")
+   }
 
 
 
@@ -77,8 +90,9 @@ takeALoan(){
 
 }
 invest(){
-    let montant=prompt("choisir un montant a investir")
-    this.lflousli3ndo+=this.lflousli3ndo*1,2
+    let montant= Number(prompt("choisir un montant a investir"))
+    this.lflousli3ndo+=this.lflousli3ndo*0,2
+    this.invest+=montant   //inv kan khawi flcalass ay3mer 
      this.historique.push(`${montant}`)
 }
  historique(){}
@@ -99,9 +113,9 @@ invest(){
 
  function signup () {
 
-      let name=prompt("enter tour name ")
+      let name=prompt("enter tour name ").trim()
 //           //*condition dyal  name
-   if( (name.length<5    && !name.includes("@")   &&  name[0] ===name[0].toUpperCase() ) ){
+   if( (name.length<5    && !name.includes("@")   &&  name===name[0].toUpperCase()+name.slice(1) ) ){
     alert("your name is invalid")
     return}
 
@@ -146,7 +160,9 @@ if( password!==Password_confirmed){
             return
         }
 
-
+let user =new User(name,email,age ,password)
+users.push(user)
+emails.push(email)
     }
 
 // Fonction login
@@ -154,26 +170,21 @@ function login(){
 
          let email=prompt("enter your email")
         let password=prompt("enter your password")
-        if( emails.includes(email)){
-            alert("your email existe")
+        if(User.email===email && User.password===password){
+            alert("welcome ")
 
 
         }else{
             alert(" we don't have this email")
 
         }
-        for (let i= 0; i < users.length; i++) {
-           if(  users[i].email===email  && users[i].password===passwords){
-            alert("ton mdp est juste ")
-           }else{
-            alert("your mdp is incorrect ")
-        }
+        
             
         }
          
 
 
-    }
+    
 
 
 // Fonction changer mot de passe
@@ -181,6 +192,14 @@ function changermdp(){
    let askemail=prompt("enter ur email")
    if ( emails.includes(askemail)){
     alert("you can changer tn mdp ")
+
+//*or une autre methode blindexof
+// let index =emails.indexOf(email)
+// if(index===-1){
+//     alert("email not found")
+//     return
+// }
+
 
     let newmdp=prompt("enter your new mdp")
     let Password_confirmed=prompt("enter you password confirmed ")
@@ -202,6 +221,14 @@ function changermdp(){
     }else{
         alert("your mdp is invalid")
     }
+
+
+    //*pour stoker le nouveau mdp 
+
+
+   
+
+
     let chercher=emails.indexOf(askemail)
     users[chercher].password=newmdp
     alert("now you your new mpd is apdates")
@@ -209,7 +236,10 @@ function changermdp(){
 
 
    
-}}
+}
+
+
+}
 
 
 function bank(user) {
